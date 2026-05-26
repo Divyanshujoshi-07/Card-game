@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>City Drive – Open World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Loading Splash ─────────────────────────────── -->
+  <div id="loading">
+    <div class="splash-inner">
+      <div class="splash-logo">CITY<span>DRIVE</span></div>
+      <p class="splash-sub">Generating city…</p>
+      <div class="splash-bar"><div class="splash-fill" id="loadFill"></div></div>
+      <p class="splash-hint">Use <kbd>W A S D</kbd> or <kbd>↑ ← ↓ →</kbd> to drive &nbsp;·&nbsp; <kbd>Space</kbd> to honk</p>
+    </div>
+  </div>
+
+  <!-- ── Game World ─────────────────────────────────── -->
+  <div id="wrap">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+
+      <!-- Speedo (bottom-right) -->
+      <div id="speedo">
+        <svg id="speedArc" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+          <path id="arcTrack" d="M10,65 A55,55 0 0,1 110,65" fill="none" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+          <path id="arcFill"  d="M10,65 A55,55 0 0,1 110,65" fill="none" stroke="#f39c12" stroke-width="8" stroke-linecap="round"
+                stroke-dasharray="0 200" style="transition:stroke-dasharray .12s,stroke .12s"/>
+        </svg>
+        <div id="speedNum">0</div>
+        <div id="speedUnit">KM/H</div>
+      </div>
+
+      <!-- Mini-map (bottom-left) -->
+      <div id="minimapBox">
+        <div id="minimapLabel">MAP</div>
+        <canvas id="minimap" width="160" height="160"></canvas>
+        <div id="mapCompass">N</div>
+      </div>
+
+      <!-- Top bar: gear / surface -->
+      <div id="topbar">
+        <span id="surfaceTag">ROAD</span>
+        <span id="gearTag">▲ DRIVE</span>
+      </div>
+
+    </div><!-- /hud -->
+
+    <!-- Horn popup -->
+    <div id="hornPop">BEEP!</div>
+
+  </div><!-- /wrap -->
+
+  <script src="city.js"></script>
+  <script src="car.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
